@@ -21,11 +21,26 @@ public class Coin
     //why are they both blue? blue means methods. yellow means types
     flip();
   }
-
   /*
   This is the section of the class containing the methods (behaviors) of a coin
   Flip method assigns a randomly chosen value to the face of the coin
   */
+
+  /*
+  The accessor method for the face variable (a getter)
+  */
+  public int getFace(){
+    return face;
+    //int is return type
+  }
+
+  /*
+  The mutator method for the face variable (a setter)
+  */
+  public void setFace(int newFace){
+    face = newFace;
+  //setters always have a return type of void. In () is parameters
+  }
   public void flip(){
     face = (int) (Math.random()*2); //Math.random creates a decimal between 0-1
   }

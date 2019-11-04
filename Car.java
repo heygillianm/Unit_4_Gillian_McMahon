@@ -14,7 +14,7 @@ public class Car {
   */
   private String make;
   private String model;
-  private double MPG; //miles per gallon
+  private double mpg; //miles per gallon
   private double tankSize; //in gallons
   private double amtFuel; //in gallons
 
@@ -24,14 +24,14 @@ public class Car {
   public Car (String carMake, String carModel, double carMPG, double carTankSize){
     make = carMake;
     model = carModel;
-    MPG = carMPG;
+    mpg = carMPG;
     tankSize = carTankSize; //really easy to flip things around, DON'T
     amtFuel = tankSize;
+  }
 
-
-    /*
-    Accessor methods (getters) for make, model, MPG, and tank size of Car
-    */
+  /*
+  Accessor methods (getters) for make, model, MPG, and tank size of Car
+  */
   public String getMake (){
     return make;
   }
@@ -41,7 +41,7 @@ public class Car {
   }
 
   public double getMPG (){
-    return MPG;
+    return mpg;
   }
 
   public double getTankSize (){
@@ -51,23 +51,34 @@ public class Car {
   /*
   Mutator method (setter) for fuel amount
   */
-  public void setAmtFuel(double addFuel){
-    double gasAmt;
-    if (amtFuel + addFuel < tankSize){
-      amtFuel += addFuel;
+  public void addFuel(double setFuel){
+    if (amtFuel + setFuel <= tankSize){
+      amtFuel += setFuel;
     }
     else {
-      System.out.println("You have a full tank. No more fuel.");
+      double fuelAdded = tankSize - amtFuel;
+      amtFuel = tankSize;
+      System.out.println("You added " + fuelAdded + " gallons.");
+      System.out.println("You now have a full tank of gas.");
     }
   }
 
+  public void drive(double miles) {
+    if (miles <= mpg*amtFuel) {
+      amtFuel -= miles/mpg;
+    }
+    else {
+      amtFuel = 0;
+      double milesDriven = mpg*amtFuel;
+      System.out.println("You drove " + milesDriven + " before you ran out.");
+    }
+  }
 
-public String toString(){
-  String result = "";
-  result += "Make: " + make + ", Model: " + model + "\n";
-  result += "MPG: " + mpg + "Tank Size: " + tankSize + "\n";
-  result += "Current amount of fuel: " + amtFuel;
-}
-
+  public String toString(){
+    String result = "";
+    result += "    Make: " + make + ", Model: " + model + "\n";
+    result += "    MPG: " + mpg + ", Tank Size: " + tankSize + "\n";
+    result += "    Current amount of fuel: " + amtFuel;
+    return result;
   }
 }

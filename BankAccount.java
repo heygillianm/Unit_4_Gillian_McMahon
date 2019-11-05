@@ -33,8 +33,8 @@ public class BankAccount{
   }
 
   //setter methods for instance variables
-  public double setBalance(double theBalance){
-      balance= theBalance;
+  public void setBalance(double theBalance){
+      balance = theBalance;
   }
   //methods for what a bank account does
 
@@ -46,7 +46,6 @@ public class BankAccount{
   //lets client withdrawl money
   public void withdrawl(double subWithdrawl){
     setBalance(getBalance() - subWithdrawl);
-
   }
 
   // lets client deposit money
@@ -56,13 +55,11 @@ public class BankAccount{
 
   //prints current state of bank account
   public String toString(){
-  String result = "Account balance:" + balance;
+  String result = "";
   result += "    Account Owners: " + owners + ", Bank Name: " + bankName;
   result += "    Account Name: " + accountName;
   //result += "    Transfers: " + transfer +
-  result += "    Deposits: " + deposit;
-  result += "    Withrawls: " + ammountWithdrawl;
-
+  result += "    Account Balance: " + balance;
+  return result;
   }
-
 }

@@ -46,8 +46,8 @@ public class BankAccount{
 
   //lets client transfer money to another bank account
 //  public void transfer(double amount, BankAccount other){
-  //  other.setBalance(amount);
-  //  this.setBalance(-amount);
+  //  other.setBalance(other.getBalance() + amount);
+  //  this.setBalance(getBalance() - amount);
   //}
 
 

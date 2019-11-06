@@ -43,18 +43,15 @@ public class BankAccount{
   //methods for what a bank account does
 
   //lets client transfer money to another bank account
-<<<<<<< HEAD
-  public void transfer(double amount, BankAccount other){
-    other.setBalance(amount);
-    this.setBalance(-amount);
-  }
-=======
-//  public void transfer(double amount, BankAccount other){
-  //  other.setBalance(other.getBalance() + amount);
-  //  this.setBalance(getBalance() - amount);
+  //public void transfer(double amount, BankAccount other){
+  //  other.setBalance(amount);
+  //  this.setBalance(-amount);
   //}
->>>>>>> cb8fff78f28525fbc729db3b2beb23fe99630f7f
 
+  public void transfer(double amount, BankAccount other){
+    other.setBalance(other.getBalance() + amount);
+    this.setBalance(getBalance() - amount);
+  }
 
   //lets client withdrawl money
   public void withdrawl(double subWithdrawl){

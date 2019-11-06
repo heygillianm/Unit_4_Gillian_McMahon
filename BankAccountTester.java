@@ -34,5 +34,9 @@ public class BankAccountTester{
     nAccount.Deposit(400);
     System.out.println();
     System.out.println("Deposited $400 " + "\n" + nAccount);
+
+    nAccount.setInterest();
+    System.out.println();
+    System.out.println("Interest at end of year " + "\n" + nAccount);
   }
 }

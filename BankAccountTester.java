@@ -8,9 +8,10 @@ public class BankAccountTester{
     System.out.println(nAccount + "\n");
     System.out.println(gAccount);
 
-    //gAccount.transfer(100);
-    //System.out.println();
-    //System.out.println("Transferred $100 to Nina's Checking " + "\n" + gAccount);
+    System.out.println("~ Transfer ~");
+    gAccount.transfer(100, nAccount);
+    System.out.println();
+    System.out.println("Transferred $100 to Nina's Checking " + "\n" + gAccount);
 
 
     System.out.println("~ Withdrawing money from account ~");

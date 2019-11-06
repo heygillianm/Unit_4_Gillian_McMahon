@@ -32,23 +32,21 @@ public class BankAccount{
     return balance;
   }
 
-  public double getInterest(double totalInt){
-    totalInt = balance*interest;
-    setBalance(balance + totalInt);
-    return interest;
-  }
-
   //setter methods for instance variables
   public void setBalance(double theBalance){
       balance = theBalance;
   }
+
+  public void setInterest(){
+    setBalance(balance*(1+interest));
+  }
   //methods for what a bank account does
 
   //lets client transfer money to another bank account
-//  public void transfer(double amount, BankAccount other){
-  //  other.setBalance(amount);
-  //  this.setBalance(-amount);
-  //}
+  public void transfer(double amount, BankAccount other){
+    other.setBalance(amount);
+    this.setBalance(-amount);
+  }
 
 
   //lets client withdrawl money

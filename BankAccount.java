@@ -32,6 +32,12 @@ public class BankAccount{
     return balance;
   }
 
+  public double getInterest(double totalInt){
+    totalInt = balance*interest;
+    setBalance(balance + totalInt);
+    return interest;
+  }
+
   //setter methods for instance variables
   public void setBalance(double theBalance){
       balance = theBalance;
@@ -39,8 +45,10 @@ public class BankAccount{
   //methods for what a bank account does
 
   //lets client transfer money to another bank account
-  //public void transfer(double ammTransfer){
-  //setBalance();
+//  public void transfer(double amount, BankAccount other){
+  //  other.setBalance(amount);
+  //  this.setBalance(-amount);
+  //}
 
 
   //lets client withdrawl money
@@ -56,10 +64,10 @@ public class BankAccount{
   //prints current state of bank account
   public String toString(){
   String result = "";
-  result += "    Account Owners: " + owners + ", Bank Name: " + bankName;
-  result += "    Account Name: " + accountName;
+  result += "    Account Owners: " + owners + ", Bank Name: " + bankName + "\n";
+  result += "    Account Name: " + accountName + "\n";
   //result += "    Transfers: " + transfer +
-  result += "    Account Balance: " + balance;
+  result += "    Account Balance: " + balance + "\n";
   return result;
   }
 }

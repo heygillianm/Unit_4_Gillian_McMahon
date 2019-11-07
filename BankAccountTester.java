@@ -1,9 +1,9 @@
 public class BankAccountTester{
   public static void main (String[] args){
     BankAccount gAccount = new BankAccount("Gillian", "USAA",
-    "Gillian's Checking", 510, 0.2);
+    "Gillian's Checking", 510, 0.02);
     BankAccount nAccount = new BankAccount("Nina", "Wells Fargo",
-    "Nina's Checking", 612, 0.2);
+    "Nina's Checking", 612, 0.02);
 
     System.out.println(nAccount + "\n");
     System.out.println(gAccount);

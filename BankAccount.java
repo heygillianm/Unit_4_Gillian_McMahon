@@ -1,3 +1,17 @@
+/*
+Attributes:
+- Balance
+- Account Name
+- owners
+- Interest
+- bank name
+Behaviors:
+- Transfer
+- Deposit
+- withdrawl
+- check balance
+*/
+
 public class BankAccount{
   //attributes of a bank account (instance variables)
   private double balance;
@@ -43,11 +57,6 @@ public class BankAccount{
   //methods for what a bank account does
 
   //lets client transfer money to another bank account
-  //public void transfer(double amount, BankAccount other){
-  //  other.setBalance(amount);
-  //  this.setBalance(-amount);
-  //}
-
   public void transfer(double amount, BankAccount other){
     other.setBalance(other.getBalance() + amount);
     this.setBalance(getBalance() - amount);

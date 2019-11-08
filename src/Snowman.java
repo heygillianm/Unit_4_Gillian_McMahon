@@ -12,12 +12,15 @@ public class Snowman extends Application
     public void start(Stage stage) {
         Ellipse base = new Ellipse(80, 210, 80, 60);
         base.setFill(Color.WHITE);
+        base.setStroke(Color.BLACK);
         
         Ellipse middle = new Ellipse(80, 130, 50, 40);
         middle.setFill(Color.WHITE);
+        middle.setStroke(Color.BLACK);
         
         Circle head = new Circle(80, 70, 30);
         head.setFill(Color.WHITE);
+        head.setStroke(Color.BLACK);
         
         Line leftArm = new Line(110, 130, 160, 130);
         leftArm.setStrokeWidth(3);
@@ -36,7 +39,7 @@ public class Snowman extends Application
         snowman.setTranslateY(50);
         
         Rectangle ground = new Rectangle(0, 250, 500, 100);
-        ground.setFill(Color.STEELBLUE);
+        ground.setFill(Color.WHITE);
         
         Group root = new Group(ground, snowman);
         Scene scene = new Scene(root, 500, 350, Color.LIGHTBLUE);

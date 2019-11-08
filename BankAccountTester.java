@@ -21,9 +21,19 @@ public class BankAccountTester{
 
     System.out.println("~ Depositing money into account ~");
     gAccount.Deposit(400);
-    System.out.println();
     System.out.println("Deposited $400 " + "\n" + gAccount);
     System.out.println();
+
+    gAccount.setInterest();
+    System.out.println();
+    System.out.println("Interest at end of year " + "\n" + gAccount);
+
+    System.out.println("-------------------------------------------------");
+
+    System.out.println("~ Transfer ~");
+    gAccount.transfer(200, gAccount);
+    System.out.println();
+    System.out.println("Transferred $200 to Gillian's Checking " + "\n" + nAccount);
 
     System.out.println("~ Withdrawing money from account ~");
     nAccount.withdrawl(300);

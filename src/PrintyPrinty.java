@@ -1,4 +1,5 @@
 import javafx.application.Application;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.geometry.HPos;
@@ -12,47 +13,81 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Text;
 
-public class PrintyPrinty extends Application {
+public class PrintyPrinty extends GridPane {
     private Label result;
-    private TextField printOut;
+    private TextField nameField;
+    private TextField ageField;
+    private TextField colorField;
+    private TextField hobbyField;
+    private TextArea printOut;
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
     public void start(Stage primaryStage) {
-    Font font = new Font(14);
+        Font font = new Font(14);
 
-    Label inputName = new Label("Name");
-    inputName.setFont(font);
+        Label inputName = new Label("Name");
+        inputName.setFont(font);
+        GridPane.setHalignment(inputName,HPos.LEFT);
 
-    Label inputAge = new Label("Age");
-    inputAge.setFont(font);
+        nameField = new TextField();
+        nameField.setFont(font);
+        nameField.setPrefWidth(70);
+        nameField.setAlignment(Pos.CENTER);
+        nameField.setOnAction(this::processPrintOut);
 
-    Label inputColor = new Label("Favorite color");
-    inputColor.setFont(font);
+        Label inputAge = new Label("Age");
+        inputAge.setFont(font);
+        GridPane.setHalignment(inputAge, HPos.LEFT);
 
-    Label inputHobby = new Label("Hobby");
-    inputHobby.setFont(font);
+        ageField = new TextField();
+        ageField.setFont(font);
+        ageField.setPrefWidth(70);
+        ageField.setAlignment(Pos.CENTER);
+        ageField.setOnAction(this::processPrintOut);
 
-    Button print = new Button("Print!");
-    print.setOnAction(this::processButtonPress);
+        Label inputColor = new Label("Favorite color");
+        inputColor.setFont(font);
+        GridPane.setHalignment(inputColor, HPos.RIGHT);
 
-    result = new Label("---");
-    result.setFont(font);
+        colorField = new TextField();
+        colorField.setFont(font);
+        colorField.setPrefWidth(70);
+        colorField.setAlignment(Pos.CENTER);
+        colorField.setOnAction(this::processPrintOut);
 
-    printOut = new TextField();
-    printOut.setFont(font);
-    printOut.setPrefWidth(70);
-    printOut.setAlignment(Pos.CENTER);
-    printOut.setOnAction(this::processPrintOut);
+        Label inputHobby = new Label("Hobby");
+        inputHobby.setFont(font);
+        GridPane.setHalignment(inputHobby, HPos.RIGHT);
 
-    FlowPane pane = new FlowPane(inputName, inputAge, inputColor, inputHobby, print);
-    pane.setAlignment(Pos.CENTER);
-    pane.setHgap(20);
-    pane.setVgap(10);
-    pane.setStyle("-fx-background-color: lilac");
+        hobbyField = new TextField();
+        hobbyField.setFont(font);
+        hobbyField.setPrefWidth(70);
+        hobbyField.setAlignment(Pos.CENTER);
+        hobbyField.setOnAction(this::processPrintOut);
+
+        Button print = new Button("Print!");
+        print.setOnAction(this::processPrintOut);
+        print.setAlignment(Pos.CENTER);
+
+        result = new Label("---");
+        result.setFont(font);
+
+        setAlignment(Pos.CENTER);
+        setHgap(20);
+        setVgap(10);
+        setStyle("-fx-background-color:light-blue");
+
+        add(print, 0, 0);
+        add(inputName, 1,1);
+        add(nameField, 2,1);
+        add(inputAge, 1,2);
+        add(ageField, 2,2);
+        add(inputColor, 3, 1);
+        add(colorField, 4,1);
+        add(inputHobby, 3,2);
+        add(hobbyField, 4, 2);
 
     }
+     public void processPrintOut (ActionEvent event){
+        printOut = new TextArea();
+     }
 }

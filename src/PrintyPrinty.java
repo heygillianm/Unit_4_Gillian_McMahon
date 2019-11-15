@@ -1,4 +1,3 @@
-import javafx.application.Application;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
@@ -8,20 +7,17 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.text.Text;
+import javafx.scene.text.*;
 
 public class PrintyPrinty extends GridPane {
-    private Label result;
+    private Text result = new Text();
     private TextField nameField;
     private TextField ageField;
     private TextField colorField;
     private TextField hobbyField;
-    private TextArea printOut;
 
-    public void start(Stage primaryStage) {
+    public PrintyPrinty() {
         Font font = new Font(14);
 
         Label inputName = new Label("Name");
@@ -32,7 +28,6 @@ public class PrintyPrinty extends GridPane {
         nameField.setFont(font);
         nameField.setPrefWidth(70);
         nameField.setAlignment(Pos.CENTER);
-        nameField.setOnAction(this::processPrintOut);
 
         Label inputAge = new Label("Age");
         inputAge.setFont(font);
@@ -42,7 +37,6 @@ public class PrintyPrinty extends GridPane {
         ageField.setFont(font);
         ageField.setPrefWidth(70);
         ageField.setAlignment(Pos.CENTER);
-        ageField.setOnAction(this::processPrintOut);
 
         Label inputColor = new Label("Favorite color");
         inputColor.setFont(font);
@@ -52,7 +46,6 @@ public class PrintyPrinty extends GridPane {
         colorField.setFont(font);
         colorField.setPrefWidth(70);
         colorField.setAlignment(Pos.CENTER);
-        colorField.setOnAction(this::processPrintOut);
 
         Label inputHobby = new Label("Hobby");
         inputHobby.setFont(font);
@@ -62,21 +55,19 @@ public class PrintyPrinty extends GridPane {
         hobbyField.setFont(font);
         hobbyField.setPrefWidth(70);
         hobbyField.setAlignment(Pos.CENTER);
-        hobbyField.setOnAction(this::processPrintOut);
 
         Button print = new Button("Print!");
         print.setOnAction(this::processPrintOut);
         print.setAlignment(Pos.CENTER);
-
-        result = new Label("---");
-        result.setFont(font);
+        print.setFont(font);
 
         setAlignment(Pos.CENTER);
         setHgap(20);
         setVgap(10);
-        setStyle("-fx-background-color:light-blue");
+        setStyle("-fx-background-color:lightblue");
 
-        add(print, 0, 0);
+        add(print, 2, 0);
+        add(result, 4,4);
         add(inputName, 1,1);
         add(nameField, 2,1);
         add(inputAge, 1,2);
@@ -88,6 +79,12 @@ public class PrintyPrinty extends GridPane {
 
     }
      public void processPrintOut (ActionEvent event){
-        printOut = new TextArea();
+        String name = nameField.getText();
+        String age = ageField.getText();
+        String color = colorField.getText();
+        String hobby = hobbyField.getText();
+        result.setText("Your name is " + name + ",\nYou are " + age + " years old.\n Your favorite color is "+ color +
+                ".\nYour favorite hobby is "+ hobby + ".");
+
      }
 }

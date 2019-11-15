@@ -29,7 +29,7 @@ public class AddAndSubtract extends Application {
         FlowPane pane = new FlowPane(countText, pushAdd, pushSubtract);
         pane.setAlignment(Pos.CENTER);
         pane.setHgap(20);
-        pane.setStyle("-fx-background-color: green");
+        pane.setStyle("-fx-background-color:lightgreen");
 
         Scene scene = new Scene(pane, 300, 100);
 

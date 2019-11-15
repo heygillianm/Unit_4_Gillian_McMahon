@@ -4,12 +4,12 @@ import javafx.scene.Scene;
 
 public class PrintyPrintyTest extends Application {
 
-    public void start(Stage stage) {
-        Scene scene = new Scene(new PrintyPrinty(), 300, 150);
+    public void start(Stage primaryStage) {
+        Scene scene = new Scene(new PrintyPrinty(), 600, 400);
 
-        stage.setTitle("Printy Printy");
-        stage.setScene(scene);
-        stage.show();
+        primaryStage.setTitle("Printy Printy");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     public static void main(String[]args) {

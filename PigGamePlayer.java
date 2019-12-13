@@ -1,12 +1,10 @@
 public class PigGamePlayer{
 
-    private String rollAgain;
     PigGameDie one;
     PigGameDie two;
     private int score;
 
-    public PigPlayer(String theRollAgain){
-        rollAgain = theRollAgain;
+    public PigGamePlayer(){
         one = new PigGameDie();
         two = new PigGameDie();
         score = 0;
@@ -16,29 +14,20 @@ public class PigGamePlayer{
         return score;
     }
 
-    public void addScore(int value){
-        score += value;
-    }
-
-    // sets score based off of what was rolled
-    public int Score(){
-        if (one.isOne() && two.isOne()) {
+    public int addScore(){
+        if (one.isOne() && two.isOne()){
             return score = 0;
         }
-        if (one.isOne() || two.isOne()) {
+        if (one.isOne()||two.isOne()){
             return score;
         }
-        while (one.isOne() && two.isOne()){
-            return score;
-            one.roll();
-            two.roll();
-
+        else{
+            return one + two;
         }
-        return score;
-
     }
 
     public String toString(){
+
         System.out.println("Your current score"+ getScore());
     }
 }

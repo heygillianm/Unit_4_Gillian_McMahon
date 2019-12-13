@@ -5,7 +5,8 @@ public class PigGameDie{
         face = 1;
     }
 
-    public void roll(){
+    public int roll()
+    {
         face = (int) (Math.random() *6 +1);
     }
 
@@ -20,13 +21,11 @@ public class PigGameDie{
     }
 
     public boolean isOne() {
-
-        boolean isOne = face==1;
-
-        if (face==1){
-            return isOne;
-
+        if (face == 1){
+            return true;
         }
-        return !isOne;
+        else {
+            return false;
+        }
     }
 }

@@ -1,33 +1,21 @@
 public class PigGamePlayer{
-
+    private int score;
     PigGameDie one;
     PigGameDie two;
-    private int score;
 
     public PigGamePlayer(){
+        score = 0;
         one = new PigGameDie();
         two = new PigGameDie();
-        score = 0;
     }
 
     public int getScore(){
         return score;
     }
 
-    public int addScore(){
-        if (one.isOne() && two.isOne()){
-            return score = 0;
-        }
-        if (one.isOne()||two.isOne()){
-            return score;
-        }
-        else{
-            return one + two;
-        }
+    public int setScore(int value){
+        score = value;
+        return score;
     }
 
-    public String toString(){
-
-        System.out.println("Your current score"+ getScore());
-    }
 }

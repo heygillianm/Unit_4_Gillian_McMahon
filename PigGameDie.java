@@ -1,13 +1,15 @@
 public class PigGameDie{
     private int face;
+    private boolean one;
 
     public PigGameDie (){
         face = 1;
+        one = true;
     }
 
-    public int roll()
-    {
+    public int roll() {
         face = (int) (Math.random() *6 +1);
+        return face;
     }
 
     public int getFace(){
@@ -22,10 +24,10 @@ public class PigGameDie{
 
     public boolean isOne() {
         if (face == 1){
-            return true;
+            return one;
         }
         else {
-            return false;
+            return !one;
         }
     }
 }

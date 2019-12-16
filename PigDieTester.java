@@ -4,10 +4,8 @@ public class PigDieTester{
 
         System.out.println("Welcome to Pig Dice!");
 
-        boolean gameOver = false;
-        while (!gameOver) {
-            gameOver = newGame.turn();
-        }
+        newGame.start();
+
         System.out.println("\nThanks for playing!\n");
     }
 }

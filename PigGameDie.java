@@ -21,13 +21,4 @@ public class PigGameDie{
         result += face;
         return result;
     }
-
-    public boolean isOne() {
-        if (face == 1){
-            return one;
-        }
-        else {
-            return !one;
-        }
-    }
 }

@@ -30,7 +30,7 @@ public class PigTheGame {
 
     }
 
-    private void playerTurn(PigGamePlayer player){
+    public void playerTurn(PigGamePlayer player){
         String answer = "r";
         int newScore = 0;
         while(answer.equals("r")){

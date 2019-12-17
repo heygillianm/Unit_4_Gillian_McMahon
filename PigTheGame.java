@@ -3,13 +3,11 @@ import java.util.Scanner;
 public class PigTheGame {
     PigGamePlayer player1;
     PigGamePlayer player2;
-    PigGameDie die;
     Scanner scan;
 
     public PigTheGame(){
         player1 = new PigGamePlayer();
         player2 = new PigGamePlayer();
-        die = new PigGameDie();
         scan = new Scanner(System.in);
     }
 
@@ -30,30 +28,36 @@ public class PigTheGame {
 
     }
 
-    public void playerTurn(PigGamePlayer player){
+
+    private void playerTurn(PigGamePlayer player){
         String answer = "r";
         int newScore = 0;
         while(answer.equals("r")){
             System.out.println("Would you like to roll or pass? (r/p)");
             answer = scan.nextLine();
             if (answer.equals("r")) {
-                int roll1 = die.roll();
-                System.out.println("Roll 1: " + roll1);
-                int roll2 = die.roll();
-                System.out.println("Roll 2: " + roll2);
 
-                if (roll1 == 1 && roll2 == 1) {
+                player.rollDice();
+
+                if (player.getRoll1() == 1 && player.getRoll2() == 1) {
                     System.out.println("Yikes! Snake Eyes. Total score reset.");
                     newScore = 0;
                     answer = "p";
+                    System.out.println("Round Score: " + player.getScore());
+
                 }
-                else if (roll1 == 1 || roll2 == 1){
+                else if (player.getRoll1() == 1 || player.getRoll2() == 1){
                     System.out.println("Uh oh you rolled a one. Round score reset.");
                     newScore = player.getScore();
                     answer = "p";
+                    System.out.println("Round Score: 0" );
+
                 }
                 else {
-                    newScore = player.getScore() + roll1 + roll2;
+                    newScore = player.getScore() + player.getRoll1() + player.getRoll2();
+                    System.out.println("Round score:" + newScore);
+                    player.setScore(newScore);
+
                 }
             }
         }
@@ -61,5 +65,8 @@ public class PigTheGame {
             System.out.println("Rolls added to score");
         }
         player.setScore(newScore);
+        System.out.println("Total score:" + player.getScore());
     }
+
+
 }

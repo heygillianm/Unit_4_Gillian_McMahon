@@ -19,6 +19,8 @@ public class PigGameGUI extends GridPane {
     private PigTheGame game;
 
     public PigGameGUI(){
+        game = new PigTheGame();
+
         Font font = new Font(14);
         Font titleFont = new Font(24);
         Font updateFont = titleFont.font("Times New Roman", FontWeight.BOLD, 24);
@@ -78,12 +80,12 @@ public class PigGameGUI extends GridPane {
     }
 
     public void turn(ActionEvent event){
-        //game.start();
-        gameBox.setText("Rolls stuff and figures out if it's one.");
+        game.start();
+        gameBox.setText("Roll 1: " + "\nRoll2: " + "\nScore: ");
     }
     public void passTurn(ActionEvent event){
-        //game.start();
-        gameBox.setText("Next player.");
+        game.getPlayer();
+        gameBox.setText("Player " + game.getPlayer() + " turn.");
     }
 
     public void pig(ActionEvent event){

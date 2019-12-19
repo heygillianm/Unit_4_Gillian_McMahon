@@ -1,6 +1,6 @@
 public class PigDieTester{
     public static void main (String [] args){
-        PigTheGame newGame = new PigTheGame();
+        PigGame newGame = new PigGame();
 
         System.out.println("Welcome to Pig Dice!");
 
